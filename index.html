@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/4eea45076d.js" crossorigin="anonymous"></script>
+    <title>Mohak</title>
+</head>
+<body>
+    <header id="navList" class="page-header">
+        <div class="title" id="title">Mohak Gupta</div>
+        <nav class="nav-bar" id="nav-bar">
+            <a href="javascript:void(0);" class="icon" onclick="myFunction2()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="#home" class="hover-underline-animation">Home</a>
+            <a href="#skills" class="hover-underline-animation">Skills</a>
+            <a href="#contact" class="hover-underline-animation">Contact</a>
+        </nav>
+    </header>
+    <div class="main">
+        <div class="home" id="home">
+            <div class="home-heading">
+                <h1>Hi, I'm Mohak Gupta</h1>
+                <p>A developer from NIT Hamirpur</p>
+            </div>
+            <div class="graphic">
+                <img src="coding-png-11.png" alt="picture">
+            </div>
+        </div>
+        <div class="skills" id="skills">
+            <div class="skills-content">
+                <div class="skill">
+                    <div class="skill-name">C/C++</div>
+                    <div class="skill-level" style="width: 75%;"></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Python</div>
+                    <div class="skill-level" style="width: 90%;"></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">CSS</div>
+                    <div class="skill-level" style="width: 60%;"></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">JS</div>
+                    <div class="skill-level" style="width: 30%;"></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Django</div>
+                    <div class="skill-level" style="width: 50%;"></div>
+                </div>
+            </div>
+            <div class="skills-heading">
+                <h1>Skills</h1>
+            </div>
+        </div>
+        <div class="contact" id="contact">
+            <div class="contact-heading">
+                <h1>Contact Me 🙂</h1>
+            </div>
+            <div class="contact-content">
+                <div class="social">
+                    <a href="https://www.github.com/mohakgupt">
+                        <i class="fa-brands fa-github fa-2xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/mohak_g22/">
+                        <i class="fa-brands fa-instagram fa-2xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohak-gupta-75a4b0224/">
+                        <i class="fa-brands fa-linkedin-in fa-2xl"></i>
+                    </a>
+                    <a href="https://twitter.com/MohakGu50708151">
+                        <i class="fa-brands fa-twitter fa-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onscroll = function() {myFunction()};
+ 
+        var navlist = document.getElementById("navList");
+        var links = document.getElementById("nav-bar");
+        var title = document.getElementById("title");
+        var sticky = navlist.offsetHeight;
+        var skillLevel = [...document.getElementsByClassName("skill-level")];
+        // console.log(sticky);
+ 
+        /* Function to stick the nav bar */
+        function myFunction() {
+            // console.log(window.pageYOffset);
+            if (window.pageYOffset >= sticky) {
+                navlist.classList.add("sticky");
+                links.classList.add("sticky-nav");
+                title.classList.add("title-visible");
+            }
+            else {
+                navlist.classList.remove("sticky");
+                links.classList.remove("sticky-nav");
+                title.classList.remove("title-visible");
+                links.classList.remove("responsive");
+                navlist.classList.remove("responsive");
+            }
+            if(window.pageYOffset >= 5 * sticky){
+                skillLevel.forEach(x => {
+                    x.style.transform = "none";
+                });
+            }
+        }
+        function myFunction2() {
+            links.classList.toggle("responsive");
+            navlist.classList.toggle("responsive");
+        }
+    </script>
+</body>
+</html>

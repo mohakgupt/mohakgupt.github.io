@@ -1,0 +1,241 @@
+html{
+    scroll-behavior: smooth;
+}
+  
+body{
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    background-color:rgb(0, 0, 30);
+    /* background-image: url("2.png"); */
+    color: white;
+    /* font-size: 1em; */
+}
+header.page-header{
+    display: flex;
+    height: 4em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+nav{
+    width: 20%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: transform 200ms ease-out;
+}
+nav a, .title{
+    /* display: inline-block;
+    text-align: center; */
+    /* vertical-align: middle; */
+    /* margin: auto 0; */
+    /* width: 31%; */
+    text-decoration: none;
+    color: white;
+    /* padding: 5%; */
+    font-size: 1.5em;
+    font-weight: 600;
+    transition: color 200ms ease-out;
+    /* position: sticky; */
+}
+nav a.icon{
+    display: none;
+}
+nav a:hover{
+    color: yellow;
+}
+.hover-underline-animation {
+    position: relative;
+    color: #FFFFFF;
+    text-decoration: none;
+}  
+.hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 0.15em;
+    bottom: 0;
+    left: 0;
+    background-color: #ffff00;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+} 
+.title{
+    position:absolute;
+    left: 5%;
+    top: 2rem;
+    opacity: 0;
+    transition: transform 200ms ease-out, opacity 200ms ease-out;
+}
+.title-visible{
+    transform: translateY(-1rem);
+    opacity: 1;
+}
+.home, .skills, .contact{
+    width: 50%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-heading, .skills-heading, .contact-heading{
+    margin: 1em;
+    font-size: 2em;
+    font-weight: 500;
+    color: whitesmoke;
+    width: 40%;
+    padding-right: 1em;
+}
+.graphic, .skills-content{
+    padding-left: 1em;
+    width: 60%;
+}
+.graphic img{
+    width: 100%;
+}
+.skills-heading{
+    /* width: 20%; */
+    padding-left: 1em;
+    padding-right: 0;
+    text-align: right;
+}
+.skills-content{
+    /* width: 30%; */
+    padding-left: 0;
+    padding-right: 1em;
+}
+.skill{
+    margin: 2em 0;
+}
+.skill-name{
+    font-size: 2em;
+    color: lightgray;
+}
+.skill-level{
+    transform-origin: left;
+    transform: scaleX(0.1);
+    height: 2em;
+    background-color: rgba(211, 211, 211, 0.4);
+    transition: background-color 400ms ease-out, transform 400ms ease-out;
+}
+.skill-level:hover{
+    background-color: rgba(211, 211, 211, 0.6);
+}
+
+.contact{
+    flex-direction: column;
+}
+.contact-heading{
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+.social a{
+    color: white;
+    margin: 0 1em;
+    text-decoration: none;
+    transition: color 200ms ease-out;
+}
+.social a:nth-of-type(1):hover{
+    color:yellow;
+}
+.social a:nth-of-type(2):hover{
+    color: rgb(255, 104, 129);
+}
+.social a:nth-of-type(3):hover{
+    color: rgb(73, 73, 255);
+}
+.social a:nth-of-type(4):hover{
+    color: skyblue;
+}
+.sticky {
+    backdrop-filter: blur(50px);
+}
+.sticky-nav{
+    transform: translateX(calc(50vw - 50%));
+}
+@media (max-width: 1700px){
+    .home, .skills, .contact{
+        width: 75%;
+    }
+    nav{
+        width: 25%;
+    }
+}
+@media (max-width: 1007px){
+    .home, .skills, .contact{
+        width: 90%;
+    }
+    nav{
+        width: 30%;
+    }
+}
+@media (max-width: 640px){
+    nav{
+        width: 100%;
+        margin: 0;
+    }
+    .sticky-nav{
+        flex-direction: column;
+        align-items: flex-end;
+        /* justify-content: flex-end; */
+        overflow: hidden;
+    }
+    .sticky-nav a{
+        display: none;
+    }
+    .sticky-nav a.icon{
+        padding: 0.5em;
+        float: right;
+        display: block;
+    }
+    .page-header.responsive{
+        height: fit-content;
+    }
+    .sticky-nav.responsive{
+        height: fit-content;
+    }
+    .sticky-nav.responsive a{
+        padding: 0.5em;
+        display: block;
+    }
+    .home, .contact{
+        width: 90%;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .skills{
+        width: 90%;
+        flex-direction: column-reverse;
+        margin: 0 auto;
+    }
+    .home-heading, .skills-heading, .contact-heading{
+        font-size: 1.5em;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+    .skills-content{
+        /* margin: 0;
+        padding: 0; */
+        width: 80%;
+    }
+    .graphic{
+        width: 75%;
+    }
+}
+@media(max-height: 600px){
+    .home, .skills, .contact{
+        transform: scale(0.6);
+    }
+}
