@@ -1,3 +1,11 @@
+:root{
+    --bg-light: #fffff2;
+    --text-light: #000;
+    --bg-dark: #00001e;
+    --text-dark: #fff;
+    --shadow-dark: #152b4711;
+    --shadow-light: #ffffff99;
+}
 html{
     scroll-behavior: smooth;
 }
@@ -5,10 +13,18 @@ html{
 body{
     font-family: 'Roboto Mono', monospace;
     margin: 0;
-    background-color:rgb(0, 0, 30);
-    /* background-image: url("2.png"); */
-    color: white;
-    /* font-size: 1em; */
+    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+}
+a{
+    color: inherit;
+}
+body.dark-theme{
+    background-color:var(--bg-dark);
+    color: var(--text-dark);
+}
+body.light-theme{
+    background-color:var(--bg-light);
+    color: var(--text-light);
 }
 header.page-header{
     display: flex;
@@ -17,6 +33,104 @@ header.page-header{
     top: 0;
     width: 100%;
 }
+/* toggle css start */
+.container-toggle{
+    display: flex;
+    align-items: center;
+}
+.toggle-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .toggle-slot {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    height: 2em;
+    width: 4em;
+    border-radius: 2em;
+    background-color: #fff;
+    box-shadow: -5px -5px 15px var(--shadow-light),
+      5px 5px 15px var(--shadow-dark);
+      transition: background-color 0.4s;
+    }
+    .toggle-checkbox:checked + .toggle-slot{
+      box-shadow: -5px -5px 15px var(--shadow-dark),
+        5px 5px 15px var(--shadow-light);
+  }
+  .toggle-slot:hover {
+    cursor: pointer;
+  }
+  
+  .toggle-checkbox:checked ~ .toggle-slot {
+    background-color: #292929;
+  }
+  
+  .toggle-button {
+    transform: translate(2.4em, 0.35em);
+    position: absolute;
+    height: 1.3em;
+    width: 1.3em;
+    border-radius: 50%;
+    background-color: #ffeccf;
+    box-shadow: inset 0px 0px 0px 1.5em #ffbb52;
+    transition: background-color 250ms, border-color 250ms,
+      transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  }
+  
+  .toggle-checkbox:checked ~ .toggle-slot .toggle-button {
+    background-color: #485367;
+    box-shadow: inset 0px 0px 0px 1.5em white;
+    transform: translate(0.3em, 0.35em);
+  }
+  
+  .sun-icon {
+    position: absolute;
+    height: 1.2em;
+    width: 1.2em;
+  }
+  
+  .sun-icon-wrapper {
+    position: absolute;
+    height: 1.2em;
+    width: 1.2em;
+    opacity: 1;
+    transform: translate(0em, 0.25em) rotate(15deg);
+    transform-origin: 50% 50%;
+    transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+  }
+  
+  .toggle-checkbox:checked ~ .toggle-slot .sun-icon-wrapper {
+    opacity: 0;
+    transform: translate(1em, 0.25em) rotate(0deg);
+  }
+  
+  .moon-icon {
+    position: absolute;
+    height: 1.2em;
+    width: 1.2em;
+  }
+  
+  .moon-icon-wrapper {
+    position: absolute;
+    height: 1.2em;
+    width: 1.2em;
+    opacity: 0;
+    transform: translate(0.8em, 0.55em) rotate(0deg);
+    transform-origin: 50% 50%;
+    transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2.5, 0.46, 0.71);
+  }
+  
+  .toggle-checkbox:checked ~ .toggle-slot .moon-icon-wrapper {
+    opacity: 1;
+    transform: translate(1.8em, 0.55em) rotate(-15deg);
+  }
+/* toggle css end */
+
 nav{
     width: 20%;
     height: 100%;
@@ -30,10 +144,10 @@ nav a, .title{
     /* display: inline-block;
     text-align: center; */
     /* vertical-align: middle; */
-    /* margin: auto 0; */
+    margin-right: 1em;
     /* width: 31%; */
     text-decoration: none;
-    color: white;
+    /* color: white; */
     /* padding: 5%; */
     font-size: 1.5em;
     font-weight: 600;
@@ -44,11 +158,10 @@ nav a.icon{
     display: none;
 }
 nav a:hover{
-    color: yellow;
+    color: #F6BE00;
 }
 .hover-underline-animation {
     position: relative;
-    color: #FFFFFF;
     text-decoration: none;
 }  
 .hover-underline-animation::after {
@@ -87,15 +200,22 @@ nav a:hover{
     justify-content: center;
     align-items: center;
 }
-.home-heading, .skills-heading, .contact-heading{
+.projects{
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+
+}
+.home-heading, .skills-heading, .contact-heading, .projects-heading{
     margin: 1em;
     font-size: 2em;
     font-weight: 500;
-    color: whitesmoke;
     width: 40%;
     padding-right: 1em;
 }
-.graphic, .skills-content{
+.graphic, .skills-content, .projects-content{
     padding-left: 1em;
     width: 60%;
 }
@@ -110,17 +230,37 @@ nav a:hover{
 }
 .skills-content{
     /* width: 30%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     padding-left: 0;
     padding-right: 1em;
 }
 .skill{
-    margin: 2em 0;
+    margin: 2em 1em;
+    transition: 0.2s ease-in;
 }
 .skill-name{
-    font-size: 2em;
-    color: lightgray;
+    opacity: 0;
+    font-size: 0.66em;
+    text-align: center;
+    transition: 0.2s;
 }
-.skill-level{
+.skill-icon {
+    text-align: center;
+}
+.skill-icon img{
+    width: 75px;
+    height: 75px;
+}
+.skill:hover{
+    transform: scale(1.5);
+}
+.skill:hover .skill-name{
+    opacity: 1;
+}
+/* .skill-level{
     transform-origin: left;
     transform: scaleX(0.1);
     height: 2em;
@@ -129,7 +269,7 @@ nav a:hover{
 }
 .skill-level:hover{
     background-color: rgba(211, 211, 211, 0.6);
-}
+} */
 
 .contact{
     flex-direction: column;
@@ -140,13 +280,18 @@ nav a:hover{
     width: 100%;
 }
 .social a{
-    color: white;
     margin: 0 1em;
     text-decoration: none;
-    transition: color 200ms ease-out;
+    transition: 100ms;
+}
+.social a i{
+    transition: 100ms ease-out;
+}
+.social a i:hover{
+    transform: scale(1.5);
 }
 .social a:nth-of-type(1):hover{
-    color:yellow;
+    color:#F6BE00;
 }
 .social a:nth-of-type(2):hover{
     color: rgb(255, 104, 129);
@@ -161,14 +306,71 @@ nav a:hover{
     backdrop-filter: blur(50px);
 }
 .sticky-nav{
-    transform: translateX(calc(50vw - 50%));
+    transform: translateX(calc(50vw - 60%));
+}
+.projects-heading{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.projects-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4em;
+}
+.project{
+    width: 500px;
+    height: 400px;
+    padding: 1em;
+    border: 1px solid rgb(126, 126, 126);
+    border-radius: 25px;
+    margin:1em;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.project:hover{
+    -webkit-box-shadow: 0px 10px 40px 20px rgba(0,0,0,0.50);
+-moz-box-shadow: 0px 10px 40px 20px rgba(0,0,0,0.50);
+box-shadow: 0px 10px 40px 20px rgba(0,0,0,0.50);
+
+}
+.project-image img{
+    width: 100%;
+    height: 250px;
+    border-radius: 5px;
+}
+.project-title{
+    text-align: center;
+    margin: 1em;
+}
+.project-title h2{
+    display: inline;
+}
+.project-title i{
+    margin: 0.2em;
+    font-size: 1.5em;
+    transition: color 200ms ease-out;
+}
+.project-title i:hover{
+    color: #F6BE00;
+}
+.project-desc{
+    text-align: center;
+}
+.fixed-projects{
+    position: sticky;
+    left: 0;
+    top: 0;
 }
 @media (max-width: 1700px){
-    .home, .skills, .contact{
+    .home, .skills, .contact, .projects{
         width: 75%;
     }
-    nav{
-        width: 25%;
+    .sticky-nav{
+        transform: translateX(calc(50vw - 95%));
     }
 }
 @media (max-width: 1007px){
@@ -178,6 +380,13 @@ nav a:hover{
     nav{
         width: 30%;
     }
+    .project{
+        width: 300px;
+        height: 400px
+    }
+    .project-image img{
+        height: 200px;
+    }
 }
 @media (max-width: 640px){
     nav{
@@ -185,6 +394,7 @@ nav a:hover{
         margin: 0;
     }
     .sticky-nav{
+        transform: translateX(calc(50vw - 45%));
         flex-direction: column;
         align-items: flex-end;
         /* justify-content: flex-end; */
@@ -197,6 +407,7 @@ nav a:hover{
         padding: 0.5em;
         float: right;
         display: block;
+        transform: translateX(-2em);
     }
     .page-header.responsive{
         height: fit-content;

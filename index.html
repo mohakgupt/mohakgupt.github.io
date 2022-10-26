@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width">
+    <meta ="viewport" content="width=device-width">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;700&display=swap" rel="stylesheet">
@@ -19,15 +19,39 @@
                 <i class="fa fa-bars"></i>
             </a>
             <a href="#home" class="hover-underline-animation">Home</a>
-            <a href="#skills" class="hover-underline-animation">Skills</a>
+            <a href="#skills" class="hover-underline-animation">Tech</a>
+            <a href="#projects" class="hover-underline-animation">Projects</a>
             <a href="#contact" class="hover-underline-animation">Contact</a>
         </nav>
+        <!-- theme toggle start -->
+        <div class="container-toggle">
+            <label>
+              <input
+                type="checkbox"
+                id="toggle-checkbox"
+                class="toggle-checkbox"
+                aria-label="toggle-checkbox"
+                checked
+                onclick="myFunction3()"
+              >
+              <div class="toggle-slot">
+                <div class="sun-icon-wrapper">
+                  <svg src="./assets/sun.svg" class="sun-icon" color="#ffbb52"></svg>
+                </div>
+                <div class="toggle-button"></div>
+                <div class="moon-icon-wrapper">
+                  <svg src="./assets/moon.svg" class="moon-icon" color="white"></svg>
+                </div>
+              </div>
+            </label>
+          </div>
+        <!-- theme toggle end -->
     </header>
     <div class="main">
         <div class="home" id="home">
             <div class="home-heading">
                 <h1>Hi, I'm Mohak Gupta</h1>
-                <p>A developer from NIT Hamirpur</p>
+                <p>A web-developer from India</p>
             </div>
             <div class="graphic">
                 <img src="coding-png-11.png" alt="picture">
@@ -36,33 +60,95 @@
         <div class="skills" id="skills">
             <div class="skills-content">
                 <div class="skill">
-                    <div class="skill-name">C/C++</div>
-                    <div class="skill-level" style="width: 75%;"></div>
-                </div>
-                <div class="skill">
+                    <div class="skill-icon"><img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png"></div>
                     <div class="skill-name">Python</div>
-                    <div class="skill-level" style="width: 90%;"></div>
                 </div>
                 <div class="skill">
-                    <div class="skill-name">CSS</div>
-                    <div class="skill-level" style="width: 60%;"></div>
+                    <div class="skill-icon"><img src="https://www.naveedashfaq.me/img/c++.png"></div>
+                    <div class="skill-name">C++</div>
                 </div>
                 <div class="skill">
-                    <div class="skill-name">JS</div>
-                    <div class="skill-level" style="width: 30%;"></div>
+                    <div class="skill-icon"><img src="https://cdn.iconscout.com/icon/free/png-512/c-programming-569564.png"></div>
+                    <div class="skill-name">C</div>
                 </div>
                 <div class="skill">
+                    <div class="skill-icon"><img src="https://www.vnurture.in/wp-content/uploads/2019/09/html5-icon-13.png"></div>
+                    <div class="skill-name">HTML5</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon"><img src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png"></div>
+                    <div class="skill-name">CSS3</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon"><img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></div>
+                    <div class="skill-name">JavaScript</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon"><img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png"></div>
+                    <div class="skill-name">TypeScript</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon"><img src="https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png"></div>
+                    <div class="skill-name">React</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/django-icon.png"></div>
                     <div class="skill-name">Django</div>
-                    <div class="skill-level" style="width: 50%;"></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon"><img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png"></div>
+                    <div class="skill-name">Git</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon"><img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/angular/angular.png"></div>
+                    <div class="skill-name">Angular</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon"><img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"></div>
+                    <div class="skill-name">Docker</div>
                 </div>
             </div>
             <div class="skills-heading">
-                <h1>Skills</h1>
+                <h1>Stuff I use</h1>
+            </div>
+        </div>
+        <div class="projects" id="projects">
+            <div class="projects-heading">
+                <h1>Projects</h1>
+            </div>
+            <div class="projects-content">
+                <div class="project">
+                    <div class="project-image">
+                        <img src="./assets/Screenshot (4).png">
+                    </div>
+                    <div class="project-title">
+                        <h2>UselessTV</h2>
+                        <a href="https://mohakgupt.github.io/uselessTV"><i class="fa-solid fa-link"></i></a>
+                        <a href="https://github.com/mohakgupt/uselessTV"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                    <div class="project-desc">
+                        Search and get info about your favorite tv show
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-image">
+                        <img src="./assets/Screenshot (16).png">
+                    </div>
+                    <div class="project-title">
+                        <h2>ToDo</h2>
+                        <a href="https://mohakgupt.github.io/ToDo"><i class="fa-solid fa-link"></i></a>
+                        <a href="https://github.com/mohakgupt/ToDo"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                    <div class="project-desc">
+                        With this app you can manage your time better if you have an overwhelming number of
+tasks on your head.
+                    </div>
+                </div>
             </div>
         </div>
         <div class="contact" id="contact">
             <div class="contact-heading">
-                <h1>Contact Me 🙂</h1>
+                <h1>Lets Connect 🙂💬</h1>
             </div>
             <div class="contact-content">
                 <div class="social">
@@ -89,7 +175,14 @@
         var links = document.getElementById("nav-bar");
         var title = document.getElementById("title");
         var sticky = navlist.offsetHeight;
-        var skillLevel = [...document.getElementsByClassName("skill-level")];
+        var projectsHeading = document.querySelector(".projects-heading");
+        var projectsContent = document.querySelector(".projects-content")
+        var start = projectsHeading.offsetTop;
+        var end = start + projectsContent.offsetHeight
+        var toggle = document.querySelector("#toggle-checkbox")
+        var body = document.querySelector("body")
+
+        // var skillLevel = [...document.getElementsByClass("skill-level")];
         // console.log(sticky);
  
         /* Function to stick the nav bar */
@@ -107,15 +200,34 @@
                 links.classList.remove("responsive");
                 navlist.classList.remove("responsive");
             }
-            if(window.pageYOffset >= 5 * sticky){
-                skillLevel.forEach(x => {
-                    x.style.transform = "none";
-                });
+            // if(window.pageYOffset >= 5 * sticky){
+            //     skillLevel.forEach(x => {
+            //         x.style.transform = "none";
+            //     });
+            // }
+            if(window.pageYOffset >= start && window.pageYOffset < end){
+                projectsHeading.classList.add("fixed-projects")
+            }else{
+                projectsHeading.classList.remove("fixed-projects")
             }
         }
         function myFunction2() {
             links.classList.toggle("responsive");
             navlist.classList.toggle("responsive");
+        }
+
+        if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+            toggle.checked = true
+            body.classList.add("dark-theme")
+        }else{
+            toggle.checked = false
+            body.classList.add("light-theme")
+        }
+
+        function myFunction3(){
+            console.log("toggeled")
+            body.classList.toggle("dark-theme")
+            body.classList.toggle("light-theme")
         }
     </script>
 </body>
