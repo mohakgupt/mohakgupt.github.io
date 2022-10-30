@@ -11,6 +11,7 @@ html{
 }
   
 body{
+    display: flex;
     font-family: 'Roboto Mono', monospace;
     margin: 0;
     transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
@@ -26,16 +27,28 @@ body.light-theme{
     background-color:var(--bg-light);
     color: var(--text-light);
 }
-header.page-header{
+.page-header{
     display: flex;
     height: 4em;
     position: fixed;
+    align-items: center;
     top: 0;
     width: 100%;
+}
+.nav-bar{
+    flex:1
+}
+.container-toggle .icon{
+    /* display: none; */
+    margin-left: auto;
+    margin-right: 1em;
+    opacity: 0;
+    cursor: default;
 }
 /* toggle css start */
 .container-toggle{
     display: flex;
+    flex:1;
     align-items: center;
 }
 .toggle-checkbox {
@@ -44,12 +57,13 @@ header.page-header{
     cursor: pointer;
     height: 0;
     width: 0;
-  }
-  
-  .toggle-slot {
-    position: absolute;
-    right: 1em;
-    top: 1em;
+}
+
+.toggle-slot {
+      margin-right: 2em;
+    /* position: absolute; */
+    /* right: 1em;
+    top: 1em; */
     height: 2em;
     width: 4em;
     border-radius: 2em;
@@ -134,7 +148,6 @@ header.page-header{
 nav{
     width: 20%;
     height: 100%;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -144,7 +157,6 @@ nav a, .title{
     /* display: inline-block;
     text-align: center; */
     /* vertical-align: middle; */
-    margin-right: 1em;
     /* width: 31%; */
     text-decoration: none;
     /* color: white; */
@@ -154,8 +166,8 @@ nav a, .title{
     transition: color 200ms ease-out;
     /* position: sticky; */
 }
-nav a.icon{
-    display: none;
+nav a{
+    margin-right: 1em;
 }
 nav a:hover{
     color: #F6BE00;
@@ -182,17 +194,17 @@ nav a:hover{
     transform-origin: bottom left;
 } 
 .title{
-    position:absolute;
-    left: 5%;
-    top: 2rem;
+    flex:1;
     opacity: 0;
+    padding-left: 2em;
+    transform: translateY(2rem);
     transition: transform 200ms ease-out, opacity 200ms ease-out;
 }
 .title-visible{
-    transform: translateY(-1rem);
+    transform: none;
     opacity: 1;
 }
-.home, .skills, .contact{
+.home, .contact{
     width: 50%;
     height: 100vh;
     margin: 0 auto;
@@ -200,12 +212,12 @@ nav a:hover{
     justify-content: center;
     align-items: center;
 }
-.projects{
+.skills, .projects{
     width: 50%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
 
 }
 .home-heading, .skills-heading, .contact-heading, .projects-heading{
@@ -282,6 +294,9 @@ nav a:hover{
 .contact-heading h1{
     margin-top: 30vh;
 }
+.social{
+    display: flex;
+}
 .social a{
     margin: 0 1em;
     text-decoration: none;
@@ -317,9 +332,9 @@ nav a:hover{
     backdrop-filter: blur(50px);
 }
 .sticky-nav{
-    transform: translateX(calc(50vw - 60%));
+    transform: translateX(calc(50vw - 23em));
 }
-.projects-heading{
+.projects-heading, .skills-heading{
     height: 100vh;
     display: flex;
     align-items: center;
@@ -342,10 +357,16 @@ nav a:hover{
     overflow: hidden;
     transition: 0.5s;
 }
-.project:hover{
+body.light-theme .project:hover{
     -webkit-box-shadow: 0px 10px 40px 20px rgba(0,0,0,0.50);
 -moz-box-shadow: 0px 10px 40px 20px rgba(0,0,0,0.50);
 box-shadow: 0px 10px 40px 20px rgba(0,0,0,0.50);
+
+}
+body.dark-theme .project:hover{
+    -webkit-box-shadow: 0px 10px 40px 20px rgba(0,0,0,0.50);
+-moz-box-shadow: 0px 10px 40px 20px rgba(0,0,0,0.50);
+box-shadow: 0px 10px 40px 20px rgba(255, 255, 255, 0.5);
 
 }
 .project-image img{
@@ -380,11 +401,14 @@ box-shadow: 0px 10px 40px 20px rgba(0,0,0,0.50);
     .home, .skills, .contact, .projects{
         width: 75%;
     }
-    .sticky-nav{
+    /* .sticky-nav{
         transform: translateX(calc(50vw - 95%));
-    }
+    } */
 }
 @media (max-width: 1007px){
+    /* .sticky-nav{
+        transform: none;
+    } */
     .home, .skills, .contact{
         width: 90%;
     }
@@ -399,38 +423,54 @@ box-shadow: 0px 10px 40px 20px rgba(0,0,0,0.50);
         height: 200px;
     }
 }
-@media (max-width: 640px){
+@media (max-width: 820px){
     nav{
         width: 100%;
         margin: 0;
     }
-    .sticky-nav{
+    .container-toggle .icon{
+        opacity: 1;
+        cursor: pointer;
+    }
+    /* .sticky-nav{
         transform: translateX(calc(50vw - 45%));
         flex-direction: column;
         align-items: flex-end;
         /* justify-content: flex-end; */
-        overflow: hidden;
-    }
-    .sticky-nav a{
+        /* overflow: hidden; */
+    /* } */
+    .nav-bar{
         display: none;
     }
-    .sticky-nav a.icon{
-        padding: 0.5em;
+    .page-header.icon{
+        /* padding: 0.5em; */
         float: right;
         display: block;
-        transform: translateX(-2em);
+        transform: translateX(-4em);
+        position: absolute;
+        /* right: 4em; */
+        top: 0.7em;
     }
     .page-header.responsive{
         height: fit-content;
     }
-    .sticky-nav.responsive{
+    .nav-bar.responsive{
+        display: block;
+        margin-top: 4em;
         height: fit-content;
+    }
+    .sticky-nav{
+        transform: none;
     }
     .sticky-nav.responsive a{
         padding: 0.5em;
         display: block;
+        text-align: center;
     }
-    .home, .contact{
+    .home, .projects, .contact, .projects{
+        flex-grow: 1;
+        height:auto;
+        min-height: 100vh;
         width: 90%;
         flex-direction: column;
         margin: 0 auto;
@@ -440,16 +480,20 @@ box-shadow: 0px 10px 40px 20px rgba(0,0,0,0.50);
         flex-direction: column-reverse;
         margin: 0 auto;
     }
-    .home-heading, .skills-heading, .contact-heading{
+    .home-heading, .skills-heading, .contact-heading, .projects-heading{
         font-size: 1.5em;
         padding: 0;
         width: 100%;
         text-align: center;
         margin: 0;
     }
-    .skills-content{
-        /* margin: 0;
-        padding: 0; */
+    .projects-heading, .skills-heading{
+        height: 4em;
+        position: relative;
+    }
+    .skills-content, .projects-content{
+        /* margin: 0; */
+        padding: 0;
         width: 80%;
     }
     .graphic{
@@ -457,7 +501,7 @@ box-shadow: 0px 10px 40px 20px rgba(0,0,0,0.50);
     }
 }
 @media(max-height: 600px){
-    .home, .skills, .contact{
+    .home, .skills, .projects, .contact{
         transform: scale(0.6);
     }
 }
