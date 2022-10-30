@@ -329,7 +329,7 @@ nav a:hover{
     margin-top: auto;
 }
 .sticky {
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(10px);
 }
 .sticky-nav{
     transform: translateX(calc(50vw - 23em));
