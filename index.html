@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
+    <link id="dynamic-favicon" rel="icon" type="image/x-icon" href="/assets/favicon-light.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;700&display=swap" rel="stylesheet">
@@ -199,7 +200,7 @@ tasks on your head.
         var start = projectsHeading.offsetTop;
         var end = start + projectsContent.offsetHeight
         var toggle = document.querySelector("#toggle-checkbox")
-        var body = document.querySelector("body")
+        var html = document.querySelector("html")
 
         // var skillLevel = [...document.getElementsByClass("skill-level")];
         // console.log(sticky);
@@ -237,16 +238,16 @@ tasks on your head.
 
         if(window.matchMedia("(prefers-color-scheme: dark)").matches){
             toggle.checked = true
-            body.classList.add("dark-theme")
+            html.classList.add("dark-theme")
+            document.querySelector("#dynamic-favicon").href = "/assets/favicon-dark.ico"
         }else{
             toggle.checked = false
-            body.classList.add("light-theme")
+            html.classList.add("light-theme")
         }
-
+        
         function myFunction3(){
-            console.log("toggeled")
-            body.classList.toggle("dark-theme")
-            body.classList.toggle("light-theme")
+            html.classList.toggle("dark-theme")
+            html.classList.toggle("light-theme")
         }
     </script>
 </body>

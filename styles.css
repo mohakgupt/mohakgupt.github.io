@@ -8,22 +8,22 @@
 }
 html{
     scroll-behavior: smooth;
+    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 }
   
 body{
     display: flex;
     font-family: 'Roboto Mono', monospace;
     margin: 0;
-    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 }
 a{
     color: inherit;
 }
-body.dark-theme{
+html.dark-theme{
     background-color:var(--bg-dark);
     color: var(--text-dark);
 }
-body.light-theme{
+html.light-theme{
     background-color:var(--bg-light);
     color: var(--text-light);
 }
@@ -330,6 +330,7 @@ nav a:hover{
 }
 .sticky {
     backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 .sticky-nav{
     transform: translateX(calc(50vw - 23em));
