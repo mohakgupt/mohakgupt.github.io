@@ -34,6 +34,8 @@ html.light-theme{
     align-items: center;
     top: 0;
     width: 100%;
+    z-index: 2;
+    transition: background-color 0.2s ease-out;
 }
 .nav-bar{
     flex:1
@@ -68,13 +70,13 @@ html.light-theme{
     width: 4em;
     border-radius: 2em;
     background-color: #fff;
-    box-shadow: -5px -5px 15px var(--shadow-light),
-      5px 5px 15px var(--shadow-dark);
+    box-shadow: 
+      0 0 10px var(--shadow-dark);
       transition: background-color 0.4s;
     }
     .toggle-checkbox:checked + .toggle-slot{
-      box-shadow: -5px -5px 15px var(--shadow-dark),
-        5px 5px 15px var(--shadow-light);
+      box-shadow:
+        0 0 10px var(--shadow-light);
   }
   .toggle-slot:hover {
     cursor: pointer;
@@ -331,6 +333,9 @@ nav a:hover{
 .sticky {
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.5);
+}
+html.dark-theme .sticky{
+    background-color: #191a1982;
 }
 .sticky-nav{
     transform: translateX(calc(50vw - 23em));
