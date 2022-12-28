@@ -197,7 +197,7 @@ tasks on your head.
         var sticky = navlist.offsetHeight;
         var projectsHeading = document.querySelector(".projects-heading");
         var projectsContent = document.querySelector(".projects-content")
-        var start = projectsHeading.offsetTop;
+        var start = projectsHeading.offsetTop-window.innerHeight/2;
         var end = start + projectsContent.offsetHeight
         var toggle = document.querySelector("#toggle-checkbox")
         var html = document.querySelector("html")

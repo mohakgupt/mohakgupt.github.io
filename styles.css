@@ -223,6 +223,9 @@ nav a:hover{
     align-items: center;
 
 }
+.projects{
+    align-items: flex-start;
+}
 .home-heading, .skills-heading, .contact-heading, .projects-heading{
     margin: 1em;
     font-size: 2em;
