@@ -527,10 +527,10 @@ box-shadow: 0px 10px 40px 20px rgba(255, 255, 255, 0.5);
 
 @keyframes float{
     25%{
-        transform: translateY(-0.25em);
+        transform: translateY(-0.5em);
     }
     75%{
-        transform: translateY(0.25em);
+        transform: translateY(0.5em);
     }
     100%{
         transform: none;
