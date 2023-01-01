@@ -5,6 +5,7 @@
     --text-dark: #fff;
     --shadow-dark: #152b4711;
     --shadow-light: #ffffff99;
+    --n: 26
 }
 html{
     scroll-behavior: smooth;
@@ -231,6 +232,9 @@ nav a:hover{
     font-weight: 500;
     width: 40%;
     padding-right: 1em;
+}
+.type{
+    font-family: 'Courier New', Courier, monospace;
 }
 .graphic, .skills-content, .projects-content{
     padding-left: 1em;
