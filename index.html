@@ -124,6 +124,19 @@
             <div class="projects-content">
                 <div class="project">
                     <div class="project-image">
+                        <img src="./assets/proj-1.gif">
+                    </div>
+                    <div class="project-title">
+                        <h2>NITH Syllabus</h2>
+                        <a href="https://nithsyllabus.netlify.app"><i class="fa-solid fa-link"></i></a>
+                        <a href="https://github.com/mohakgupt/nith-syllabus"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                    <div class="project-desc">
+                        Syllabus website for NIT Hamirpur
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-image">
                         <img src="./assets/Screenshot (4).png">
                     </div>
                     <div class="project-title">
@@ -201,7 +214,7 @@ tasks on your head.
         var sticky = navlist.offsetHeight;
         var projectsHeading = document.querySelector(".projects-heading");
         var projectsContent = document.querySelector(".projects-content")
-        var start = projectsHeading.offsetTop-window.innerHeight/2;
+        var start = projectsHeading.offsetTop;
         var end = start + projectsContent.offsetHeight
         var toggle = document.querySelector("#toggle-checkbox")
         var html = document.querySelector("html")
